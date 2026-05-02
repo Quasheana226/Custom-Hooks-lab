@@ -2,14 +2,14 @@ import { useState } from 'react'
 
 // This hook takes totalitems itemsperpage and initialPage 
 
-function usePaginantion(totalItems, itemsPerPage = 10, initialPage = 10, initialPage = 1) {
+function usePagination(totalItems, itemsPerPage = 10, initialPage = 1) {
     // Rembering which page 
     // Starting off with inital page 
-    const [currentPage, setCurrentPage] useState(initialPage)
+    const [currentPage, setCurrentPage] = useState(initialPage)
 
     // If 0 items
     // Math.ceil rounds up 
-    const totakPages = totalItems === 0 ? 0 : Math.ceil(totalItems / itemsPerPage)
+    const totalPages = totalItems === 0 ? 0 : Math.ceil(totalItems / itemsPerPage)
 
     //Which item index to start showing
     const startIndex = (currentPage - 1) * itemsPerPage
@@ -21,11 +21,11 @@ function usePaginantion(totalItems, itemsPerPage = 10, initialPage = 10, initial
     // How many items actuall on this page 
     // Math.min pickes whichever is smaller 
 
-    const itemsOncurrentPage = Math.min(itemsPerPage, totalItems - startIndex)
+    const itemsOnCurrentPage = Math.min(itemsPerPage, totalItems - startIndex)
 
     // can go forward as long as long not on page 1
 
-    const canPrevPage = currentPage < totalPages
+    const canNextPage = currentPage < totalPages
 
     // can go back as long as long not on page 1
     const canPrevPage = currentPage > 1
@@ -67,4 +67,4 @@ function usePaginantion(totalItems, itemsPerPage = 10, initialPage = 10, initial
 }
 
 
-export default usePaginantion
+export default usePagination

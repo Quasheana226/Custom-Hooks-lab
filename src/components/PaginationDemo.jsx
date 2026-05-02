@@ -23,23 +23,23 @@ function PaginationDemo() {
     const visibleItems = ALL_ITEMS.slice(startIndex, endIndex)
     return(
 
-        <div> 
-            <p>Page {currentPage} of {totalPages}</p>
+        <div className="demo-card">
+            <p className="page-indicator">Page {currentPage} of {totalPages}</p>
 
-            <ul>
+            <ul className="pagination-list">
                 {visibleItems.map(item => (
-                    <li key={item}>{item}</li>
+                    <li key={item} className="pagination-item">{item}</li>
                 ))}
             </ul>
 
-            <button onClick={prevPage} disabled={!canPrevPage}>
-                Previous 
-
-            </button>
-
-            <button onClick={nextPage} disabled={!canNextPage}>
-
-            </button>
+            <div className="pagination-controls">
+                <button className="btn-nav" onClick={prevPage} disabled={!canPrevPage}>
+                    Previous
+                </button>
+                <button className="btn-nav" onClick={nextPage} disabled={!canNextPage}>
+                    Next
+                </button>
+            </div>
         </div>
 
     )

@@ -27,21 +27,21 @@ function DebounceSearchDemo() {
 
     return (
 
-        <div>
-            {/* The search input  */}
+        <div className="demo-card">
             <input
                 type="text"
+                className="search-input"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Search Sneakers..."
             />
 
-            <p>What youre Typing: {inputValue}</p>
-            <p> Searching for: {debouncedValue}</p>
-            {/* Show Filtered results  */}
-            <ul>
+            <p className="search-label">Typing: <span>{inputValue}</span></p>
+            <p className="search-label">Searching for: <span>{debouncedValue}</span></p>
+
+            <ul className="results-list">
                 {results.map(item => (
-                    <li key={item}>{item}</li>
+                    <li key={item} className="result-item">{item}</li>
                 ))}
             </ul>
 
